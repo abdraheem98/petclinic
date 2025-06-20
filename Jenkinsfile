@@ -23,7 +23,7 @@ pipeline {
 
                         echo 'Deploying via Helm...'
                         /usr/local/bin/helm upgrade --install petclinic-app petclinic \
-                          --set image.repository=docker.io/abdraheem98/petclinic:1
+                          --set image.repository=docker.io/abdraheem98/petclinic
                     """
                 }
             }
