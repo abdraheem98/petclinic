@@ -5,8 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: docker.io/abdraheem98/petclinic
-  tag: 4
+  repository: docker.io/abdraheem98/petclinic:4
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
