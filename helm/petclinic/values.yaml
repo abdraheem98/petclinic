@@ -9,8 +9,8 @@ image:
   tag: 3
   pullPolicy: IfNotPresent
 
-imagePullSecrets:
-  - name: regcred   # Your docker hub credential secret name
+#imagePullSecrets:
+  #- name: regcred   
 
 nameOverride: ""
 fullnameOverride: ""
