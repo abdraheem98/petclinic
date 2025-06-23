@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker.io/abdraheem98/petclinic
-  tag: 1
+  tag: 3
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
