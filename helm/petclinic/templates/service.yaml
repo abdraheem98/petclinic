@@ -1,16 +1,14 @@
-# Service - LoadBalancer
-# # pb-service -lb.yml
 apiVersion: v1
 kind: Service
 metadata:
   name: petclinic-service
   labels:
-    app: petclinic-app
+    app: {{ include "petclinic.name" . }}
 spec:
   selector:
-    app: petclinic-app
-  type: NodePort
+    app: {{ include "petclinic.name" . }}
+  type: LoadBalancer
   ports:
-  - nodePort: 32751
-    port: 8080
-    targetPort: 8080
+    - nodePort: 32751
+      port: 8080
+      targetPort: 8080
