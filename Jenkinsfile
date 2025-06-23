@@ -1,32 +1,15 @@
 pipeline {
-    agent any
-
-    environment {
-        // Set your kubeconfig path here (adjust if different)
-        KUBECONFIG = "/home/ubuntu/.kube/config"
-    }
-
+	agent any
     stages {
-        stage('Build and Deploy on K8s') {
-            steps {
-                script {
-                    def imageTag = "${env.BUILD_NUMBER}"
-                    sh """
-                        echo 'Current directory:'
-                        pwd
-
-                        echo 'Copying Helm chart files...'
-                        cp -R helm/* .
-
-                        echo 'Listing directory contents...'
-                        ls -ltr
-
-                        echo 'Deploying via Helm...'
-                        /usr/local/bin/helm upgrade --install petclinic-app petclinic \
-                          --set image.repository=docker.io/abdraheem98/petclinic
-                    """
-                }
-            }
+        stage('Build on k8 ') {
+            steps {           
+                        sh 'pwd'
+                        sh 'cp -R helm/* .'
+		                sh 'ls -ltr'
+                        sh 'pwd'
+                        sh '/usr/local/bin/helm upgrade --install petclinic-app petclinic  --set image.repository=docker.io/abdraheem98/petclinic --set image.tag=1'
+              			
+            }           
         }
     }
 }
